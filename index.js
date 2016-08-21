@@ -40,7 +40,7 @@ function handleLocalResource(request, response) {
 		uri = uri.substring(proxyConfig.contextPath.length);
 	}
 
-	var filename = path.join(process.cwd() + proxyConfig.staticPath, uri);
+	var filename = path.join(process.cwd() + '/' + proxyConfig.staticPath, uri);
 	fs.exists(filename, function(exists) {
 		if(!exists) {
 			response.writeHead(404, {'Content-Type' : 'text/plain'});
