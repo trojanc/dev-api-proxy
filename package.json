@@ -12,6 +12,9 @@
     "dev",
     "rest"
   ],
+  "bin": {
+    "dev-api-proxy": "./index.js"
+  },
   "author": "Charl Thiem",
   "license": "GPL-3.0",
   "bugs": {
@@ -21,7 +24,8 @@
   "dependencies": {
     "http-proxy": "^1.14.0",
     "lodash": "^4.15.0",
-    "mime-types": "^2.1.11"
+    "mime-types": "^2.1.11",
+    "minimist": "^1.2.0"
   },
   "devDependencies": {
     "eslint": "^3.3.1"

@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 var http = require('http'),
 	httpProxy = require('http-proxy'),
 	find = require('lodash/find'),
@@ -5,26 +7,27 @@ var http = require('http'),
 	path = require('path'),
 	fs = require('fs'),
 	staticPath = '/target/gulp',
-	mime = require('mime-types');
+	mime = require('mime-types'),
+	argv = require('minimist')(process.argv.slice(2));
 
 // File from which proxy settings are read
 var CONFIG_FILENAME = 'devproxy.json';
 
 // Directory from which this script is called
-var currentDirectory = __dirname;
+var currentDirectory = process.cwd();
 
 // Load the config
 var proxyConfig = require(currentDirectory + '/' + CONFIG_FILENAME);
 
-function printConfig(){
+// Debug print paths
+if(!argv.silent){
 	for(var idx in proxyConfig.proxies){
 		var proxy = proxyConfig.proxies[idx];
 		var proxyFrom =  'http://localhost:' + proxyConfig.port +  proxy.path;
-		var proxyTo = 'http://' + proxy.host + ':' + proxy.port + proxyConfig.proxyConfig + proxy.path;
+		var proxyTo = 'http://' + proxy.host + ':' + proxy.port + proxyConfig.contextPath + proxy.path;
 		console.log(proxyFrom + ' -> ' + proxyTo);
 	}
 }
-printConfig();
 
 startProxy(proxyConfig.proxies, proxyConfig.port);
 
@@ -41,7 +44,7 @@ function handleLocalResource(request, response) {
 		}
 
 		if (fs.statSync(filename).isDirectory()){
-			response.writeHead(302, {'Location' : 'http://' + request.headers.host + uri + 'html/index.html'});
+			response.writeHead(302, {'Location' : 'http://' + request.headers.host + uri + proxyConfig.home});
 			response.write('Moved\n');
 			response.end();
 			return;

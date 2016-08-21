@@ -1,6 +1,7 @@
 {
   "contextPath" : "/myApp",
   "port" : 8000,
+  "home" : "html/index.html",
   "proxies" : [
     {
       "host" : "localhost",
