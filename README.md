@@ -17,6 +17,9 @@ Port the proxy should be listening on (default `8000`)
 **home** -
 Index page if root is hit (default `html/index.html`)
 
+**staticPath**
+Path to the static files to host
+
 **proxies** -
 List of API's to proxy
 

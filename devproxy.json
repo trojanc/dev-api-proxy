@@ -2,6 +2,7 @@
   "contextPath" : "/myApp",
   "port" : 8000,
   "home" : "html/index.html",
+  "staticPath" : "target/gulp",
   "proxies" : [
     {
       "host" : "localhost",
