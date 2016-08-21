@@ -1,0 +1,11 @@
+{
+  "contextPath" : "/myApp",
+  "port" : 8000,
+  "proxies" : [
+    {
+      "host" : "localhost",
+      "port" : 8080,
+      "path" : "/api"
+    }
+  ]
+}

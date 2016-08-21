@@ -1,0 +1,29 @@
+{
+  "name": "dev-api-proxy",
+  "version": "0.0.1",
+  "description": "API proxy",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trojanc/dev-api-proxy.git"
+  },
+  "keywords": [
+    "proxy",
+    "dev",
+    "rest"
+  ],
+  "author": "Charl Thiem",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/trojanc/dev-api-proxy/issues"
+  },
+  "homepage": "https://github.com/trojanc/dev-api-proxy#readme",
+  "dependencies": {
+    "http-proxy": "^1.14.0",
+    "lodash": "^4.15.0",
+    "mime-types": "^2.1.11"
+  },
+  "devDependencies": {
+    "eslint": "^3.3.1"
+  }
+}

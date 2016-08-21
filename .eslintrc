@@ -1,0 +1,26 @@
+{
+  "rules": {
+    "no-console" : 0,
+    "indent": [2,"tab"],
+    "quotes": [1,"single"],
+    "linebreak-style": [2,"unix"],
+    "semi": [2,"always"],
+    "comma-spacing": [2, {"before": false, "after": true}],
+    "curly": [1, "all"],
+    "handle-callback-err": 2,
+    "key-spacing": [2, { "beforeColon": true, "afterColon": true }],
+    "space-after-keywords": [0, "always"],
+    "space-before-blocks": [0, "always"],
+    "space-before-function-paren": [0, "never"],
+    "space-in-brackets": [0, "never"],
+    "space-in-parens": [0, "never"],
+    "space-infix-ops": 2,
+    "space-unary-word-ops": 0,
+    "spaced-line-comment": [0, "always"],
+    "strict": 0,
+  },
+  "env": {
+    "node": true
+  },
+  "extends": "eslint:recommended"
+}
