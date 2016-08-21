@@ -33,8 +33,14 @@ startProxy(proxyConfig.proxies, proxyConfig.port);
 
 function handleLocalResource(request, response) {
 
-	var uri = url.parse(request.url).pathname,
-		filename = path.join(process.cwd() + '/' + proxyConfig.staticPath, uri);
+	var uri = url.parse(request.url).pathname;
+
+	// If the uri starts with the context, strip it
+	if(uri.indexOf(proxyConfig.contextPath) == 0){
+		uri = uri.substring(proxyConfig.contextPath.length);
+	}
+
+	var filename = path.join(process.cwd() + proxyConfig.staticPath, uri);
 	fs.exists(filename, function(exists) {
 		if(!exists) {
 			response.writeHead(404, {'Content-Type' : 'text/plain'});
@@ -79,11 +85,14 @@ function startProxy(hostsMap, port) {
 		}
 		else{
 			var proxiedPath = 'http://' + target.host + ':' + target.port;
+			req.url = proxyConfig.contextPath + req.url;
 			proxy.web(req, res, { target : proxiedPath }, function (e) {
 				console.log('ERROR in Request');
 				console.log(e);
 			});
 		}
+
+
 	});
 
 

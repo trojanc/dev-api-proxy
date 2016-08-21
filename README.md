@@ -1,5 +1,5 @@
 # dev-api-proxy
-A api proxy for REST applications.
+An API proxy for REST applications.
 
 ## Purpose
 The purpose of this module is to provide a method to proxy api calls to your remove server while hosting static files from a local directory.
