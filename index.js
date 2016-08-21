@@ -20,6 +20,7 @@ var proxyConfig = require(currentDirectory + '/' + CONFIG_FILENAME);
 
 // Debug print paths
 if(!argv.silent){
+	console.log('Serving: ' + process.cwd() + '/' + proxyConfig.staticPath);
 	for(var idx in proxyConfig.proxies){
 		var proxy = proxyConfig.proxies[idx];
 		var proxyFrom =  'http://localhost:' + proxyConfig.port +  proxy.path;
