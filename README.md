@@ -31,3 +31,25 @@ Port to connect to on the remote host.
 
 **proxies[n].path** -
 Path of the local URL to math, and proxy. This is the important bit that is used to determine if this proxy should be used.
+
+## Configuration Example
+```json
+{
+  "contextPath" : "/myApp",
+  "port" : 8000,
+  "home" : "html/index.html",
+  "staticPath" : "target/gulp",
+  "proxies" : [
+    {
+      "host" : "localhost",
+      "port" : 8080,
+      "path" : "/users-api"
+  },
+  {
+	"host" : "localhost",
+	"port" : 8080,
+	"path" : "/banking-api"
+  }
+  ]
+}
+```
